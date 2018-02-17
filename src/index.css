@@ -1,0 +1,165 @@
+body {
+  background-color: #4d4365;
+}
+
+#welcome {
+  color: white;
+  padding-left: 20px;
+}
+
+#signup-logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+}
+
+.jumbotron {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.signup-button {
+  margin-top: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.signup-email-box,
+.signup-password-box {
+  text-align: center;
+}
+
+.signup-email {
+  padding-top: 10px;
+}
+
+.mission {
+  text-align: center;
+  color: white;
+}
+
+.new-member {
+  text-align: center;
+  color: white;
+  margin-top: 3em;
+}
+
+.pet-boolean {
+  text-align: center;
+  color: white;
+  margin-top: 3em;
+}
+
+.pet-signup {
+  color: white;
+  margin-top: 1em;
+}
+
+.done-pet-button {
+  float: right;
+}
+
+.person-signup {
+  color: white;
+}
+
+.person-done-button {
+  float: right;
+}
+
+.review {
+  color: white;
+  margin-left: 1em;
+}
+
+#friendliness,
+#punctuality,
+#overall {
+  width: 3em;
+}
+
+#comments {
+  width: 30em;
+  height: 5em;
+}
+/* Lili adding style */
+#schedule #profile {
+  color: white;
+  font-weight: bold;
+  font-size: medium 
+}
+ #profile {
+  color: white;
+  font-size: medium 
+}
+#PersonDashboard {
+  color: white;
+  font-size: 13px;
+}
+#petDashboard {
+  color: white;
+  font-size: medium 
+}
+#schedule-box {
+  background-color: rgb(190, 153, 201);
+  width: 35em;
+  height: 10em;
+  border: 5px solid rgb(226, 229, 233);
+  padding: 25px;
+  margin: 25px;
+  color: white;
+}
+#request {
+  width: 800px;
+  border: 3px solid rgb(251, 252, 253);
+  padding: 25px;
+  margin: 25px;
+}
+#request:hover {
+  background-color: rgb(53, 28, 53);
+}
+
+#schedule-box:hover {
+  background-color: rgb(70, 46, 66);
+}
+
+#example-datetime-local-input {
+  width: 17em;
+}
+
+.schedule {
+  margin-left: 20px;
+}
+.pad{
+  padding-bottom: 20px;
+  padding-top: 20px
+}
+
+#chatForm{
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+}
+#chat{
+  color: white;
+  font-size: medium;
+}
+
+.chatMessage {
+  width: 800px;
+  height: 50px;
+  border: 3px solid rgb(251, 252, 253);
+  padding: 10px;
+  margin: 10px;
+  color: white;
+  padding-left: 30px;
+}
+
+#splashpage {
+  border-radius: 50px;
+  background-color: whitesmoke;
+}

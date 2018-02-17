@@ -1,0 +1,74 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">FindingFido</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" [routerLink]="['/profile']">Profile</button>
+      <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" (click)="authService.logout()">Log Out</button>
+    </form>
+  </div>
+</nav>
+
+<div id='schedule' class="row">
+  <div class="col-md-6 schedule">
+    <form>
+      <div class="form-group">
+        <label for="pet-kind">When do you want to play with a pet?</label>
+        <div class="form-group row">
+          <label for="example-datetime-local-input">Date and time</label>
+          <div class="col-10">
+            <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input" [(ngModel)]="time" name="time">
+            <button type="submit" class="btn btn-primary activity-submit" (click)="onSelect()">Go!</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div *ngIf='activities'>
+      <ul *ngFor="let activity of activities">
+        <div id='schedule-box' (click)="onSelectActivity(activity)" (mouseenter)="onHover(activity)">
+          <p>Location: {{activity.location}}</p>
+          <p>Time: {{cleanDate(activity.time)}}</p>
+          <p>Email of the person: {{activity.email_user}}</p>
+        </div>
+      </ul>
+    </div>
+  </div>
+  <div class='row'>
+    <div *ngIf='petProfile'>
+        <div id='schedule-box'>
+          <p>Name: {{petProfile.name}}</p>
+          <p>Kind: {{petProfile.kind}}</p>
+          <p>Pet characteristics: {{petProfile.characteristics}}</p>
+        </div>
+    </div>
+  </div>
+  <div *ngIf="map" id="map">
+    <iframe width="500" height="500" frameborder="0" style="border:0" [src]="sanitize(map)" allowfullscreen>
+    </iframe>
+  </div>
+</div>

@@ -1,0 +1,121 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">FindingFido</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+      <button class="btn btn-primary my-2 my-sm-0" type="submit" [routerLink]="['/profile']">Profile</button>
+      <button class="btn btn-danger my-2 my-sm-0" type="submit" (click)="authService.logout()">Log Out</button>
+    </form>
+  </div>
+</nav>
+
+<div class="row" id='PersonDashboard'>
+  <div class="col-sm-4">
+    <h3>Upload Pictures of your pet!</h3>
+    <div style='padding-bottom:20px; padding-top:20px'>
+      <input type="file" (change)="fileChangeEvent($event)" placeholder="Upload file..." />
+      <button type="button" (click)="upload()">Upload</button>
+    </div>
+    <button class="btn btn-success my-2 my-sm-0" type="submit" (click)="onPictures()">See Your Pet's Pictures</button>
+    <div *ngIf='photos'>
+      <h3>Your Pet's Pictures</h3>
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" *ngIf='photos'>
+            <div class="carousel-inner" role="listbox" *ngIf='photos[0]'>
+              <div class="carousel-item active">
+                <img class="d-block img-fluid" src={{photos[0].url}} alt="First slide">
+              </div>
+              <div class="carousel-item" *ngIf='photos[1]'>
+                <img class="d-block img-fluid" src={{photos[1].url}} alt="Second slide">
+              </div>
+              <div class="carousel-item" *ngIf='photos[2]'>
+                <img class="d-block img-fluid" src={{photos[2].url}} (error)="this.src='assets/logo.png'" alt="Third slide">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+      <!-- <ul *ngFor="let photo of photos">
+        <div style='padding-bottom:10px; padding-top:10px'>
+          <img src={{photo.url}} style="width:200px;height:200px;">
+          <p>id: {{photo.id}}</p>
+        </div>
+      </ul> -->
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <div class="panel-body" *ngIf='requests'>
+      <h1>Hello {{user.name}} ! </h1>
+      <h3>Here are the requests you have made for your pet!</h3>
+      <ul *ngFor="let request of requests">
+        <div style='padding-bottom:10px; color:white' id='request'>
+          <h6>Location to have your pet picked up at: {{request.location}}</h6>
+          <h6>Time to have your pet picked up at: {{cleanDate(request.time)}}</h6>
+          <button class="btn btn-danger my-2 my-sm-0" type="submit" (click)="onClick()">Don't need someone anymore?</button>
+        </div>
+      </ul>
+      <h3 *ngIf='activities'>Here are your upcoming commitments!</h3>
+      <ul *ngFor="let activity of activities">
+        <div style='padding-bottom:10px; color:white' id='request'>
+          <h6>Location to get the pet at: {{activity.location}}</h6>
+          <h6>Time to GET the pet at: {{cleanDate(activity.time)}}. Don't be late !</h6>
+          <button class="btn btn-info my-2 my-sm-0" type="submit" (click)="onClick()">Can't make it?</button>
+        </div>
+      </ul>
+    </div>
+    <div class="row">
+      <div>
+        <button type="button" class="btn btn-primary btn-lg" (click)="onSelectFriend()">Find a new friend to play with</button>
+      </div>
+      <div>
+        <button type="button" class="btn btn-success btn-lg" (click)="onSelectPet()">Find someone to play with your pet</button>
+        <div class="col-md-10 pad" *ngIf="pet">
+          <div class="form-group row">
+            <label for="example-datetime-local-input">Date and time</label>
+            <div class="col-10">
+              <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input" [(ngModel)]="time"
+                name="time">
+            </div>
+          </div>
+          <form>
+            <div class="form-group">
+              <label for="extra">Give us a pickup place</label>
+              <textarea class="form-control" id="extra" rows="3" [(ngModel)]="location" name="location"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="onSelect()">Submit!</button>
+          </form>
+          <p *ngIf="personNeeded">We will come back to you shortly with a match!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
