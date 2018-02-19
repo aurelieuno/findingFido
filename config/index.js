@@ -1,3 +1,3 @@
 module.exports = {
-  url: 'http://localhost:9000',
+  url: 'http://52.45.97.31:9000',
 };
