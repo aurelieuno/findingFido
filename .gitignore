@@ -4,3 +4,4 @@ docker-compose.yml
 .env
 lilissh.pem
 *.pem
+config
