@@ -1,10 +1,6 @@
 node_modules
 package-lock.json
 docker-compose.yml
-config
-config/googlemaps.api.js
-config.js
 .env
-config/cloudinary.api.js
 lilissh.pem
 *.pem
