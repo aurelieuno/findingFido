@@ -1,5 +1,40 @@
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
 body {
-  background-color: #4d4365;
+  /* background-color: #4d4365; */
+  height: 100%;
+  background-image: url("/assets/retina_wood.png");
+
+}
+
+#firstPar {
+  text-align: center;
+  align-self: right;
+  margin-right: 50px;
+}
+
+.bg {
+  background-image: url("/assets/dog2.jpg");
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#title {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 74px;
+  /* text-align: right; */
+  margin-right: 40px;
 }
 
 #welcome {
@@ -23,9 +58,7 @@ body {
 
 .signup-button {
   margin-top: 20px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-right: 50px;
 }
 
 .signup-email-box,
@@ -86,24 +119,30 @@ body {
   width: 30em;
   height: 5em;
 }
+
 /* Lili adding style */
+
 #schedule #profile {
   color: white;
   font-weight: bold;
-  font-size: medium 
+  font-size: medium
 }
- #profile {
+
+#profile {
   color: white;
-  font-size: medium 
+  font-size: medium
 }
+
 #PersonDashboard {
   color: white;
   font-size: 13px;
 }
+
 #petDashboard {
   color: white;
-  font-size: medium 
+  font-size: medium
 }
+
 #schedule-box {
   background-color: rgb(190, 153, 201);
   width: 35em;
@@ -113,12 +152,14 @@ body {
   margin: 25px;
   color: white;
 }
+
 #request {
   width: 800px;
   border: 3px solid rgb(251, 252, 253);
   padding: 25px;
   margin: 25px;
 }
+
 #request:hover {
   background-color: rgb(53, 28, 53);
 }
@@ -134,17 +175,19 @@ body {
 .schedule {
   margin-left: 20px;
 }
-.pad{
+
+.pad {
   padding-bottom: 20px;
   padding-top: 20px
 }
 
-#chatForm{
+#chatForm {
   position: fixed;
   bottom: 20px;
   width: 100%;
 }
-#chat{
+
+#chat {
   color: white;
   font-size: medium;
 }
@@ -159,7 +202,3 @@ body {
   padding-left: 30px;
 }
 
-#splashpage {
-  border-radius: 50px;
-  background-color: whitesmoke;
-}
